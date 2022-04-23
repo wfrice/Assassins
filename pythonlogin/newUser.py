@@ -10,7 +10,7 @@ def index():
   email = "what@ever.com"
 
   cur = mariadb_connection.cursor()
-  cur.execute('INSERT INTO Login (username, password, email) VALUES (%s, %s, %s)', (username, password, email))
+  cur.execute('INSERT INTO Login (username, password, photo) VALUES (%s, %s, %s)', (username, password, photo))
   mariadb_connection.commit()
   cur.close()
 

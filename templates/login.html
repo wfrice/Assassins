@@ -1,4 +1,4 @@
- <style>
+<style>
  * {
 box-sizing: border-box;
 }
@@ -12,7 +12,7 @@ padding: 50px;
 }
 .login {
 margin: 20px auto;
-width: 300px;
+width: 800px;
 }
 .login-screen {
 background-color: #FFF;
@@ -60,6 +60,22 @@ display: block;
 width: 250px;
 margin: 0 auto;
 }
+.btn2 {
+border: 2px solid transparent;
+background: #239ad1;
+color: #ffffff;
+font-size: 16px;
+line-height: 25px;
+padding: 10px 0;
+text-decoration: none;
+text-shadow: none;
+border-radius: 3px;
+box-shadow: none;
+transition: 0.25s;
+display: block;
+width: 250px;
+margin: 0 auto;
+}
 .btn:hover {
 background-color: #E55423;
 }
@@ -68,28 +84,87 @@ font-size: 12px;
 color: #444;
 display: block;
 margin-top: 12px;
-}  
- </style>
- <title>Login</title>
+}
+
+.column {
+  float: left;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.loginHalf {
+  margin: 20px;
+}
+.rules {
+  margin: 20px;
+  word-wrap: break-word;
+}
+</style>
+<title>Login</title>
 {% block body %}
 <form action="/login" method="POST">
-<div class="login">
-  <div class="login-screen">
-    <div class="app-title">
-      <h1>Login</h1>
+
+
+  <div class="login">
+    <div class="login-screen">
+      <div class="row">
+
+
+
+        <div class="column" style="width: 60%">
+          <div class="rules">
+            <h1>Rules</h1>
+            <h3>General</h3>
+            <ol>
+              <li>Everyone only has one target to eliminate at any given time</li>
+              <li>You can only eliminate your own target</li>
+              <li>For an elimination to count
+                <ul>
+                  <li>You must use a valid 'weapon'</li>
+                  <li>You must be in a valid location</li>
+                </ul>
+              </li>
+              <li>The game continues until only one assassin remains</li>
+              <li>When you are emliminated, you are out of the game (you must also click the remove button)</li>
+              <li>Do not tell anyone who your target is</li>
+              <li>When you eliminate your target your next target is their target</li>
+              <li>Non players can only be used for information. You must not tell them about the game and they can not spy for you.</li>
+            </ol> 
+          </div>
+        </div>
+
+
+
+        <div class="column" style="width: 30%">
+          <div class="loginHalf">
+            <div class="app-title">
+              <h1>Login</h1>
+            </div>
+            <div class="login-form">
+              <div class="control-group">
+                <input type="text" class="login-field" value="" placeholder="email" name="email" required>
+                <label class="login-field-icon fui-user" for="login-name"></label>
+              </div>
+              <div class="control-group">
+                <input type="password" class="login-field" value="" placeholder="password" name="password" required>
+                <label class="login-field-icon fui-lock" for="login-pass"></label>
+              </div>
+              <input type="submit" value="Log in" class="btn btn-primary btn-large btn-block">
+              <br>
+              <a href="/register" class="btn2">Register</a>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div> 
     </div>
-  <div class="login-form">
-    <div class="control-group">
-        <input type="text" class="login-field" value="" placeholder="username" name="username">
-        <label class="login-field-icon fui-user" for="login-name"></label>
-    </div>
-    <div class="control-group">
-        <input type="password" class="login-field" value="" placeholder="password" name="password">
-        <label class="login-field-icon fui-lock" for="login-pass"></label>
-    </div>
-     <input type="submit" value="Log in" class="btn btn-primary btn-large btn-block">
-   </div>
   </div>
- </div>
+
 </form>
 {% endblock %}
